@@ -1,0 +1,11 @@
+<form action="{% url 'calculate' %}" method="get" id="calculate-form">
+    <div class="mb-3">
+        <label for="id_income" class="form-label">
+            My Income
+        </label>
+        <input type="text" name="income" class="textinput form-control" id="id_income" value="{{ user.client.income }}">
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary" form="calculate-form" value="Calculate">Calculate</button>
+    </div>
+</form>

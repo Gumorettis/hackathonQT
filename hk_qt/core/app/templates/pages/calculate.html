@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}HK - Home{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="card mt-5">
+        <div class="card-header">Loan Calculator</div>
+        <div class="card-body">
+            {% include 'partials/calculate-header.html' %}
+            {% include 'partials/calculate-form.html' %}
+            <hr>
+            <div class="mb-3">
+                <p class="text-left">Results</p>
+            </div>
+            <div class="mb-3">
+                <label for="id_max_value" class="form-label">
+                    Maximum value allowed to be loaned for $ {{ income }} income
+                </label>
+                <input type="text" name="max_value" class="textinput form-control" id="id_max_value" disabled value="{{ result.max_value | floatformat:2 }}">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "hk-qt-engine"
+version = "0.1.0"
+description = ""
+authors = ["Gustavo Moretti <gustavo.moretti.souza@hotmail.com>"]
+readme = "README.md"
+packages = [{include = "hk_qt_engine"}]
+
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = {extras = ["all"], version = "^0.100.0"}
+
+
+[tool.poetry.group.dev.dependencies]
+taskipy = "^1.11.0"
+isort = "^5.12.0"
+black = "^23.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+
+[tool.taskipy.tasks]
+run = "uvicorn hk_qt_engine.main:app --port 8081 --reload"
+black = "black manage.py core"
+isort = "isort manage.py core"
+format = "task isort && task black"

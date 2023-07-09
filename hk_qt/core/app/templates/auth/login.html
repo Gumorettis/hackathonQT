@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}HK - Login{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="card mt-5">
+        <div class="card-header">Login</div>
+            <div class="card-body">
+                {% crispy form %}
+                <div>                    
+                    <a class="link-offset-2" href="{% url 'register' %}">Register</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

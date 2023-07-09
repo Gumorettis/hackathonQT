@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}HK - Home{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="card mt-5">
+        <div class="card-header">Loan Calculator</div>
+        <div class="card-body">
+            {% include 'partials/calculate-header.html' %}
+            {% include 'partials/calculate-form.html' %}
+        </div>
+    </div>
+</div>
+{% endblock %}

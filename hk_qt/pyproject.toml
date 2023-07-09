@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "hk-qt"
+version = "0.1.0"
+description = ""
+authors = ["Gustavo Moretti <gustavo.moretti.souza@hotmail.com>"]
+readme = "README.md"
+packages = [{include = "core"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.3"
+python-decouple = "^3.8"
+psycopg = {extras = ["binary"], version = "^3.1.9"}
+dj-database-url = "^2.0.0"
+crispy-bootstrap5 = "^0.7"
+django-crispy-forms = "^2.0"
+requests = "^2.31.0"
+
+[tool.poetry.group.dev.dependencies]
+taskipy = "^1.11.0"
+isort = "^5.12.0"
+black = "^23.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+
+[tool.taskipy.tasks]
+run = "python manage.py runserver 0.0.0.0:8000"
+black = "black manage.py core"
+isort = "isort manage.py core"
+format = "task isort && task black"
